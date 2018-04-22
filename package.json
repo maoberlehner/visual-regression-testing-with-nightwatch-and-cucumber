@@ -1,0 +1,40 @@
+{
+  "name": "visual-regression-testing-with-nightwatch-and-cucumber",
+  "version": "0.0.1",
+  "author": "Markus Oberlehner",
+  "homepage": "https://github.com/maoberlehner/visual-regression-testing-with-nightwatch-and-cucumber",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore .",
+    "test:serve": "node test/server/index.js",
+    "test:acceptance": "nightwatch -c test/conf.nightwatch.js --skiptags visual-regression",
+    "test:visual-regression": "nightwatch -c test/conf.nightwatch.js --tags visual-regression",
+    "test:visual-regression-reference": "nightwatch -c test/conf.nightwatch.js --tags visual-regression-reference",
+    "test": "concurrently 'npm run test:serve' 'npm run test:acceptance' --success first --kill-others"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maoberlehner/visual-regression-testing-with-nightwatch-and-cucumber"
+  },
+  "bugs": {
+    "url": "https://github.com/maoberlehner/visual-regression-testing-with-nightwatch-and-cucumber/issues"
+  },
+  "devDependencies": {
+    "@avalanche/eslint-config": "^2.0.0",
+    "chromedriver": "^2.38.0",
+    "compression": "^1.7.2",
+    "concurrently": "^3.5.1",
+    "css-to-xpath": "^0.1.0",
+    "cucumber": "^4.2.1",
+    "cucumber-pretty": "^1.4.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-import": "^2.11.0",
+    "express": "^4.16.3",
+    "nightwatch": "^0.9.20",
+    "nightwatch-cucumber": "^9.1.2",
+    "pixelmatch": "^4.0.2",
+    "pngjs": "^3.3.3",
+    "tmp": "0.0.33"
+  }
+}
